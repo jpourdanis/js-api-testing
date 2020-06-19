@@ -1,0 +1,102 @@
+{
+	"info": {
+		"_postman_id": "9da9a41a-5f07-4518-8d6a-f4f3475a923a",
+		"name": "api-test-collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "api get tests",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "6ee182e3-b90d-4044-9f92-dc4ea2ce42b4",
+						"exec": [
+							"pm.test(\"should return 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"should return the tittle\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.title).to.eql(\"delectus aut autem\");",
+							"});",
+							"",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://jsonplaceholder.typicode.com/todos/1",
+					"protocol": "https",
+					"host": [
+						"jsonplaceholder",
+						"typicode",
+						"com"
+					],
+					"path": [
+						"todos",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "api post tests",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "0aec88bf-897f-4180-94d7-09672e046753",
+						"exec": [
+							"pm.test(\"should post and return the object\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.body).to.eql(\"bar\");",
+							"    pm.expect(jsonData.title).to.eql(\"foo\");",
+							"    pm.expect(jsonData.userId).to.eql(1);",
+							"    pm.expect(jsonData.id).to.eql(101);",
+							"    pm.expect(pm.response.code).to.be.oneOf([201,202]);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"title\": \"foo\",\n  \"body\": \"bar\",\n  \"userId\": 1\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://jsonplaceholder.typicode.com/posts",
+					"protocol": "https",
+					"host": [
+						"jsonplaceholder",
+						"typicode",
+						"com"
+					],
+					"path": [
+						"posts"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

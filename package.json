@@ -1,0 +1,37 @@
+{
+  "name": "integration-tests",
+  "version": "1.0.0",
+  "description": "Integration test example using Express and SuperTest",
+  "main": "index.js",
+  "scripts": {
+    "test:externalurl": "mocha --timeout 30000 './api.spec.js'",
+    "test:internalserver": "mocha --timeout 30000 './tests.spec.js'",
+    "start": "node server.js",
+    "cypress:open": "./node_modules/.bin/cypress open",
+    "newman": "newman run api-test-collection.postman_collection.json"
+  },
+  "author": "Josh Matz",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.15.1",
+    "chai": "^3.5.0",
+    "cypress": "^4.8.0",
+    "express": "^4.17.1",
+    "express-validator": "^2.21.0",
+    "mocha": "^8.0.1",
+    "supertest": "^1.2.0"
+  },
+  "engines": {
+    "node": "4.2.2",
+    "npm": "3.6.0"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joshmatz/supertest-example.git"
+  },
+  "bugs": {
+    "url": "https://github.com/joshmatz/supertest-example/issues"
+  },
+  "homepage": "https://github.com/joshmatz/supertest-example#readme"
+}
